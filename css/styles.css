@@ -1,1 +1,90 @@
-/* Hoja de estilos principal */
+/* ==========================================================
+   HOJA DE ESTILOS PRINCIPAL - ALKE WALLET
+
+   En este archivo se agregan los estilos generales del
+   proyecto. Bootstrap nos ayuda con muchos estilos, pero
+   aquí personalizamos colores, tamaños y apariencia.
+
+   ========================================================== */
+
+
+/* ----------------------------------------------------------
+   Configuración general de la página
+---------------------------------------------------------- */
+
+body{
+    background: #f5f7fa;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* ----------------------------------------------------------
+   Card principal del Login
+---------------------------------------------------------- */
+
+.card{
+
+    border: none;
+
+    border-radius: 15px;
+
+}
+
+
+/* ----------------------------------------------------------
+   Título principal
+---------------------------------------------------------- */
+
+.logo{
+
+    color:#0d6efd;
+
+    font-weight:bold;
+
+}
+
+
+/* ----------------------------------------------------------
+   Botón principal
+---------------------------------------------------------- */
+
+.btn-primary{
+
+    padding:12px;
+
+    font-weight:bold;
+
+}
+
+
+/* ----------------------------------------------------------
+   Contenedor donde aparecerán los mensajes del login.
+---------------------------------------------------------- */
+
+#mensaje{
+
+    margin-bottom:20px;
+
+}
+
+
+/* ----------------------------------------------------------
+   Estilos que reutilizaremos en las demás páginas.
+
+   Más adelante el menú, depósitos y movimientos
+   usarán estas mismas clases.
+---------------------------------------------------------- */
+
+.saldo-card{
+
+    border-radius:15px;
+
+    padding:20px;
+
+}
+
+.menu-card{
+
+    border-radius:15px;
+
+}

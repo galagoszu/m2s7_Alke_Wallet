@@ -438,3 +438,84 @@ if ($("#sendMoneyForm").length) {
    });
 
 }
+
+
+
+
+
+/* ==========================================================
+   HISTORIAL DE MOVIMIENTOS
+
+   Este bloque controla la pantalla transactions.html.
+
+   Su función es:
+
+   1. Leer los movimientos almacenados.
+   2. Recorrer el arreglo.
+   3. Crear dinámicamente una fila por cada movimiento.
+   4. Mostrar el historial en una tabla.
+========================================================== */
+
+if ($("#tablaMovimientos").length) {
+
+    // ==========================================
+    // Recuperamos los movimientos guardados.
+    // Si todavía no existen, utilizamos un
+    // arreglo vacío para evitar errores.
+    // ==========================================
+   const movimientos = JSON.parse(
+      localStorage.getItem("movimientos")
+   ) || [];
+
+    // ==========================================
+    // Si no existen movimientos mostramos un
+    // mensaje en la tabla.
+    // ==========================================
+   if (movimientos.length === 0) {
+      $("#tablaMovimientos").append(`
+            <tr>
+               <td colspan="4" class="text-center">
+                  No existen movimientos registrados.
+               </td>
+            </tr>
+      `);
+   }
+
+    // ==========================================
+    // Recorremos el arreglo utilizando forEach.
+    // Cada elemento del arreglo corresponde a
+    // un movimiento realizado por el usuario.
+    // ==========================================
+   movimientos.forEach(function (movimiento) {
+
+        // ======================================
+        // Si el movimiento no tiene contacto
+        // (por ejemplo un depósito), mostramos
+        // un guion.
+        // ======================================
+      const contacto = movimiento.contacto || "-";
+
+        // ======================================
+        // Creamos una nueva fila para la tabla.
+        // ======================================
+      $("#tablaMovimientos").append(`
+            <tr>
+               <td>
+                  ${movimiento.fecha}
+               </td>
+
+               <td>
+                  ${movimiento.tipo}
+               </td>
+
+               <td>
+                  ${contacto}
+               </td>
+
+               <td>
+                  $ ${movimiento.monto.toLocaleString("es-CL")}
+               </td>
+            </tr>
+      `);
+   });
+}
